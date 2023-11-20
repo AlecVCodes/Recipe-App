@@ -1,0 +1,73 @@
+#mockup-component {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  max-height: 700px; /* Set the maximum width to 600px */
+}
+
+.mockup {
+  background-color: #fdd771;
+  padding-block: 5rem;
+  grid-row: 2 / 3; /* Span rows 2 to 4 */
+  grid-column: 1/3; /* Place it in the first column */
+
+  p {
+    padding-block: 0.9rem;
+  }
+}
+
+.mockup-graphic-column {
+  grid-column: 2/3;
+  grid-row: 1/4;
+}
+
+.mockup-graphic {
+  height: 100%;
+}
+
+.mockup-cta-btns {
+  width: fit-content;
+  display: flex;
+}
+
+.mockup-btn {
+  align-items: center;
+  @include curved-btn;
+  display: flex;
+  background-color: #fff;
+  color: #000;
+  border-radius: 50px !important;
+  padding-inline: 1.5rem;
+  margin-block: 5px; /* Add margin to the top and bottom of each button */
+
+  .icon {
+    margin-inline: 10px;
+  }
+
+  .text-wrapper {
+    display: flex;
+
+    align-items: start;
+    flex-direction: column;
+
+    .sub-text {
+      margin-bottom: 5px;
+    }
+
+    .main-text {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.mockup-btn:not(:last-child) {
+  margin-inline-end: 10px; /* Use margin-inline-end instead of margin-right */
+}
+
+@media screen and (max-width: 1000px) {
+  .mockup-graphic {
+    display: none;
+  }
+}

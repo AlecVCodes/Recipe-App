@@ -1,0 +1,55 @@
+//styling
+
+.dashboard-logo {
+  display: block;
+  margin-top: 2rem;
+  margin-inline: auto;
+  cursor: pointer;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  overflow: hidden;
+  background-color: $accent-colour;
+
+  height: 100%;
+  width: 100%;
+
+  ul {
+    padding-block: 1rem;
+    padding-inline: 1rem;
+   
+    a, li {
+      text-decoration: none;
+      padding-inline: 1rem;
+      display: flex;
+      align-items: center;
+      font-family: Poppins;
+      padding-block: 1rem;
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 100ms ease-in;
+
+
+      &:hover,
+      &.active {
+        background-color: $primary;
+
+        &:before {
+          content: "";
+          left: -15px;
+          height: 100%;
+          background-color: $primary;
+          width: 3px;
+          position: absolute;
+          border-radius: 5px;
+        }
+      }
+
+      svg {
+        margin-right: 1.2rem;
+      }
+    }
+  }
+}

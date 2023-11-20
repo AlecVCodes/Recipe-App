@@ -1,0 +1,62 @@
+//variables
+//SCSS variables
+$primary: #fff9ec;
+$dark: #242424;
+$secondary: #4d4637;
+$accent-colour: #f3af01;
+$subtext-colour: #7b7b7b;
+$icon: #fdd771;
+$third: #e6e5e3;
+$fourth: #1f1e1e;
+$error: #e52c2c;
+$info: #fffb27;
+
+//colour palette
+
+$colours: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "info": $info,
+  "error": $error,
+  "blue": rgb(41, 41, 231),
+  "red": rgb(237, 32, 32),
+  "orange": rgb(255, 132, 0),
+  "green": rgb(65, 226, 65),
+  "purple": rgba(205, 20, 205, 0.895),
+  "gray": rgb(154, 134, 134),
+  "black": black,
+  "white": white,
+);
+
+//spacing
+
+$size-100: 0.25rem;
+$size-200: 0.5rem;
+$size-300: 0.75rem;
+$size-400: 1rem;
+$size-500: 1.5rem;
+$size-600: 2rem;
+$size-700: 3rem;
+$size-800: 4rem;
+$size-900: 5rem;
+
+// $base-padding: 0.75rem;
+// $padding-small: 0.1rem;
+// $padding-medium: 1rem;
+// $padding-large: 1.5rem;
+// $base-margin: 2.75rem;
+
+// border
+$base-border-thickness: 1px;
+$base-border-radius: 20px;
+
+// box shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+
+//font-sizes
+
+$base-font-size: 1rem;
+$font-size-small: $base-font-size * 0.75;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;

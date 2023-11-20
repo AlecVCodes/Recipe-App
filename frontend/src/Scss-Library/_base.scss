@@ -1,0 +1,171 @@
+/* import google font */
+
+@font-face {
+  src: url(fonts/Montserrat-Black.ttf);
+  font-family: Montserrat-Black;
+}
+@font-face {
+  src: url(fonts/Montserrat-SemiBold.ttf);
+  font-family: Montserrat SemiBold;
+}
+@font-face {
+  src: url(fonts/Montserrat-Bold.ttf);
+  font-family: Montserrat-Bold;
+}
+@font-face {
+  src: url(fonts/Montserrat-Regular.ttf);
+  font-family: Montserrat-Regular;
+}
+
+/* reset styles */
+* {
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+
+header {
+  z-index: 1000000000000000000000000000;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #fff9ec;
+}
+
+li {
+  z-index: 10000000000000;
+  color: #000;
+  position: relative;
+}
+
+ul {
+  z-index: 1;
+}
+
+.hamburger-menu > svg {
+  z-index: 100000000000000000;
+
+}
+
+// body {
+//   background-color: $primary;
+
+//   height: 100%;
+//   position: relative;
+
+//   overflow-x: hidden;
+// }
+
+// body::after {
+//   top: 0%;
+//   z-index: 1;
+//   content: "";
+//   // background-color: $accent-colour;
+//   height: 700px;
+//   min-width: 1400px;
+//   margin-left: 0%;
+//   width: 100%;
+//   position: absolute;
+//   border-bottom-right-radius: 50%;
+//   border-bottom-left-radius: 50%;
+//   transform: scale(1.3);
+//   transition: height 300ms ease-in, scale 300ms ease-in;
+// }
+
+.App {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  font-family: Poppins;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dotted #efefef;
+}
+
+img {
+  max-width: 100%;
+  z-index: 1000;
+}
+
+h1 {
+  text-align: center;
+  width: min-content;
+
+  color: $dark;
+  font-family: Montserrat-Black;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  width: 100%;
+  z-index: 1000;
+  font-weight: 800;
+  position: relative;
+  letter-spacing: 4px;
+
+  span {
+    font-family: Montserrat-Black;
+    text-align: center;
+    font-weight: 900;
+    display: block;
+  }
+}
+
+h2 {
+  font-family: Poppins;
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
+}
+
+h3 {
+  font-family: Montserrat SemiBold;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h4 {
+  font-family: Montserrat-Bold;
+  font-size: clamp(0.9rem, 3vw, 1.3rem);
+}
+
+p {
+  font-family: Montserrat Medium;
+  // color: $secondary;
+  line-height: 2rem;
+
+  span {
+    display: block;
+  }
+}
+
+section {
+  padding-bottom: 15rem;
+}
+
+//accessibility styling
+
+.visually-hidden {
+  position: absolute;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* base media queries */
+
+@media (min-width: 50em) {
+  h1 {
+    text-align: left;
+  }
+}

@@ -1,0 +1,29 @@
+@use "sass:math";
+
+//2 column layouts
+
+.even-columns {
+  display: grid;
+}
+
+//3 column leyouts
+
+.three-column-layout {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+}
+
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
+@media (min-width: 60em) {
+  .three-column-layout {
+    grid-auto-columns: 1fr 1fr 1fr;
+    grid-auto-flow: column;
+  }
+}

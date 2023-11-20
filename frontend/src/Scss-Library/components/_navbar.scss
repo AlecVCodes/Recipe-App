@@ -1,0 +1,111 @@
+.flex-layout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.primary-header {
+  position: fixed;
+  height: max-content;
+  width: 100%;
+  z-index: 9999999999;
+  transition: background-color 150ms ease-in-out;
+}
+
+.primary-header.active {
+  background-color: white;
+}
+
+.nav-wrapper {
+  padding-block: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  @extend .flex-layout;
+  // padding: $base-padding * 3 $base-padding * 2;
+
+  .container {
+    @extend .flex-layout;
+  }
+}
+
+@each $key, $val in $colours {
+  .navbar-#{$key} {
+    @extend .navbar;
+    background-color: $val;
+  }
+}
+
+.flavour-finder-logo {
+  position: relative;
+  cursor: pointer;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.nav-list {
+  font-family: Montserrat Medium;
+  display: flex;
+  gap: clamp($size-400, 5vw, $size-800);
+}
+
+.nav-list > li {
+  cursor: pointer;
+}
+
+/* media queries */
+
+@media (max-width: 50em) {
+  .primary-navigation {
+    z-index: 10000000000000000000000000 !important;
+
+    position: fixed;
+    display: none;
+    inset: 7rem 1rem auto;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 3rem;
+    li {
+      color: #000;
+    }
+  }
+
+  .box-shadow-overlay {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 10000000000000000000;
+    background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8));
+  }
+
+  .mobile-nav-toggle {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    padding: 0.5;
+    z-index: 1000000000000000000000000000;
+  }
+  .mobile-nav-toggle .icon-close {
+    display: none;
+  }
+
+  .nav-list {
+    display: grid;
+    gap: 2rem;
+    text-align: center;
+  }
+}
+
+.open {
+  z-index: 100000000000000000000000000000 !important;
+  display: block;
+}

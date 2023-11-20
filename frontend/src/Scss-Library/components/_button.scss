@@ -1,0 +1,386 @@
+button {
+  cursor: pointer;
+  font-family: Montserrat;
+}
+
+@mixin btn($bg-color: #e2e2e2) {
+  text-decoration: none;
+  display: inline-block;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn {
+  @include btn;
+}
+
+@mixin curved-btn {
+  cursor: pointer;
+  @include btn;
+  border-radius: 25px;
+  background-color: $dark;
+  color: #fff;
+  padding-block: 1rem;
+  transition: background-color 100ms ease-in, color 100ms ease-in;
+  padding-inline: 2.5rem;
+}
+
+.curved-btn {
+  cursor: pointer;
+  @include btn;
+  border-radius: 25px;
+  background-color: $dark;
+  color: #fff;
+  padding-block: 1rem;
+  transition: background-color 100ms ease-in, color 100ms ease-in;
+  padding-inline: 2.5rem;
+}
+
+.join-up-btn {
+  margin-right: 1rem;
+  cursor: pointer;
+  @include btn;
+  border-radius: 25px;
+  background-color: $dark;
+  color: #fff;
+  padding-block: 1rem;
+  transition: background-color 100ms ease-in, color 100ms ease-in;
+  padding-inline: 2.5rem;
+}
+.How-it-works-btn {
+  @include curved-btn;
+  color: black;
+  background-color: transparent;
+  border: 1px solid black;
+  padding-inline: 1.4rem;
+}
+
+.curved-btn:hover {
+  background-color: $accent-colour;
+  color: #000;
+}
+
+.play-btn-container {
+  align-items: center;
+
+  display: flex;
+}
+
+.testimonials-btn {
+  margin-inline: auto !important;
+}
+
+.play-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: $accent-colour;
+  padding: 0.8rem;
+  margin-top: 0;
+  margin-inline: 1rem;
+}
+
+.play-btn::after {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10%;
+  filter: blur(9.5px);
+  background-color: $accent-colour;
+  width: 100%;
+  height: 100%;
+}
+
+.cta-buttons {
+  margin-inline: auto;
+  justify-content: center;
+  display: flex;
+  align-items: center !important;
+
+  width: max-content;
+}
+
+// .contact-btn {
+//   background-color: #2e2929;
+//   border: none;
+//   color: #fff;
+//   padding: 10px 23px 10px 20px;
+//   border-radius: 17px 5px;
+//   cursor: pointer;
+//   transition: background-color 100ms ease-in, color 100ms ease-in;
+// }
+
+.contact-btn:hover {
+  background-color: $accent-colour;
+  color: $secondary;
+}
+
+.phone-btn {
+  cursor: pointer;
+  padding-right: 1rem;
+  border-radius: 48px;
+  width: max-content;
+  .content {
+    padding-block: 0.6rem;
+    padding-right: 0.5rem;
+    p {
+      font-size: 0.825rem;
+    }
+  }
+}
+
+.mockup-cta-btns {
+  display: flex;
+}
+
+@media (max-width: 1000px) {
+  .phone-btns {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .phone-btns {
+    flex-direction: column;
+  }
+}
+
+.svg-icon {
+  padding-inline: 1rem;
+}
+
+@each $key, $val in $colours {
+  .btn-#{$key} {
+    @include btn($val);
+    &:hover {
+      background-color: lighten($val, 5);
+    }
+  }
+
+  .btn-outlined-#{$key} {
+    @include btn(#fff);
+    border: $base-border-thickness solid $val;
+    &:hover {
+      background-color: $val;
+    }
+  }
+
+  .btn-complement-#{$key} {
+    @include btn($val);
+    color: light-comp($val);
+    &:hover {
+      background-color: light-comp($val);
+    }
+  }
+}
+
+.resume-btn {
+  padding: 0.25rem 0.5rem;
+  font-family: Bebas Neue;
+
+  border-radius: 5px;
+  font-size: 1.375rem;
+}
+
+//Authentication buttons
+
+.Sign-up-with-google,
+.Login-with-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.Sign-up-with-google,
+.Login-with-google {
+  border-radius: 5px;
+
+  width: 100%;
+  font-family: Poppins;
+  font-weight: 600;
+  padding-block: 0.6em;
+  background-color: #fff;
+  font-size: 0.875rem;
+  border: 1px solid #e1ded7;
+}
+
+.sign-up-btn, .Log-in-btn {
+  font-size: 0.875rem;
+  padding-block: 0.6rem;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-family: Poppins;
+  border-radius: 5px;
+  background-color: #565e66;
+  transition: background-color 100ms ease-in, color 100ms ease-in;
+}
+
+.sign-up-btn:hover, .Log-in-btn:hover {
+  background-color: $accent-colour;
+}
+
+.google-authentication-icon {
+  margin-right: 0.5rem;
+}
+
+
+
+//dashboard buttons {
+  
+
+  @mixin recipe-card-btn {
+    text-decoration: none;
+    border-radius: 5px;
+    padding:.25rem .5rem;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+
+    transition: all .1s ease-in-out;
+
+
+
+    &:hover > svg > path {
+      fill: #fff;
+    }
+  }
+
+    svg {
+    margin-right: .5rem;
+  }
+
+
+  .recipe-card-btn-delete {
+    @include recipe-card-btn;
+    &:hover {
+      background-color: #F13131;
+      color:#fff;
+      border-color: transparent;
+    }
+  
+
+  
+
+  
+  }
+
+
+
+
+
+
+.recipe-card-btn-save {
+  @include recipe-card-btn;
+  color:#66C67B;
+  &:hover {
+    background-color: #66C67B;
+    color:#fff;
+    border-color: transparent;
+  }
+}
+
+.return-home-btn {
+  border:2px solid;
+  width: max-content;
+  height: max-content;
+  @include recipe-card-btn;
+
+
+  &:hover > svg > path {
+    fill: #000;
+  }
+}
+
+
+
+//save user info button
+
+.save-btn {
+@include curved-btn();
+padding:.6rem 1rem;
+font-weight: bold;
+transition: all .2s ease-in;
+
+&:hover {
+  background-color: #424141;
+}
+}
+
+.btn-upload-img {
+  border-radius: 50%;
+  padding:2rem;
+  border: none;
+
+  opacity: .8;
+    min-width: 25px;
+  background-color: #000;
+  position: absolute;
+  height: max-content;
+  z-index: 10000000000000000;
+
+
+  svg {
+    margin:0;
+  }
+}
+
+@media (min-width: 50em) {
+  .cta-buttons {
+    position: relative;
+    display: flex;
+    align-items: center !important;
+    margin: 0;
+    width: max-content;
+  }
+}
+
+//dashboard header buttons
+
+
+//hamburger menu button 
+
+button.hamburger-menu {
+  background-color: transparent;
+  border:none;
+  display: none;
+  z-index: 10000000000000000000000000;
+
+  .line {
+    transition:  y 300ms ease-in , rotate 300ms ease-in , opacity 0ms 300ms;
+    transform-origin: center;
+  }
+
+  .line[aria-expanded = 'true']  {
+    transition:  y 300ms ease-in 300ms , rotate 300ms ease-in 300ms, opacity 0ms 300ms;
+
+  } 
+
+
+}
+
+.hamburger-menu[aria-expanded = 'true'] :is(.top, .bottom) {
+  y: 45;
+
+}
+
+
+.hamburger-menu[aria-expanded = 'true'] .top {
+  rotate: 45deg;
+}
+
+.hamburger-menu[aria-expanded = 'true'] .bottom {
+   rotate: -45deg;
+}
+.hamburger-menu[aria-expanded = 'true'] .middle {
+  opacity: 0;
+}
+
+// button.hamburger-menu[aria-expanded="true"] .top {
+
+// }

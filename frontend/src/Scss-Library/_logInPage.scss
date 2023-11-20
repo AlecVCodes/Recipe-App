@@ -1,0 +1,193 @@
+//styling
+
+.Login-component {
+  background-image: url(./images/authform-background.png);
+  background-size: 600px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.log-in-container {
+  background-color: #fff;
+  position: relative;
+  max-height: 800px;
+  
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  .content {
+
+    padding-inline: 5rem;
+    position: relative;
+   width: max-content;
+   min-width: 430px;
+  }
+
+  h3 {
+    color: #000;
+    font-family: Caeclia;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+  }
+
+   p {
+    padding-block: 1.5rem;
+    color: #565e66;
+    font-family: Poppins;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+   }
+}
+
+.before-line {
+  height: 1px;
+  background-color: #565e66;
+  flex-grow: 1;
+}
+.after-line {
+  height: 1px;
+  background-color: #565e66;
+  flex-grow: 1;
+}
+
+.seperator {
+  align-items: center;
+  position: relative;
+  display: flex;
+
+  justify-content: center;
+  p {
+    margin-inline: 2rem;
+  }
+}
+
+//layout
+
+//mobile design
+
+.Login-component > main {
+
+
+  .log-in-container {
+    width: 100%;
+
+
+    h3 {
+      width: fit-content;
+      margin-inline: auto;
+    }
+  }
+  .auth-logo-small {
+    display: none;
+  }
+  .auth-logo-large {
+    display: block;
+    margin-block: 2rem;
+    margin-inline: auto;
+  }
+
+  .sign-up-graphic {
+    display: none;
+  }
+
+  //desktop
+  @media screen and (min-width: 855px) {
+    .sign-up-graphic {
+      width: 100%;
+
+      display: block;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      
+      background-image: url(./images/sign-up-img.png);
+    }
+
+    .sign-up-container {
+      width: 50%;
+ 
+      .auth-logo-large {
+        display: none;
+      }
+
+      h3 {
+        margin: 0;
+      }
+
+      .TC-message {
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  // p.seperator::after {
+  //   content: "";
+  //   background-color: #565e66;
+  //   right: 0%;
+  //   bottom: 20px;
+  //   height: 2px;
+  //   width: 100px;
+  //   position: absolute;
+  // }
+.authentication-form {
+
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+    justify-content: space-between;
+    input {
+      margin-block:.5rem;
+      padding-left: 0.5rem;
+      font-weight: 400;
+      font-family: Poppins;
+      font-size: 1rem;
+      padding-block: .8rem;
+      border: 2px solid #565e66;
+      background-color: transparent;
+      border-radius: 5px;
+
+
+    }
+
+    input:focus {
+      outline: none;
+    }
+  }
+
+  .TC-checkbox {
+    accent-color: $accent-colour;
+  }
+}
+
+
+.link-to-login {
+  padding-block:1rem;
+  font-family: Poppins;
+  text-align: center;
+}
+
+.TC-message {
+  white-space: nowrap;
+}
+
+
+.link-to-signup {
+  padding-block:1rem;
+  font-family: Poppins;
+  text-align: center;
+}
+
+.TC-message {
+  white-space: nowrap;
+}

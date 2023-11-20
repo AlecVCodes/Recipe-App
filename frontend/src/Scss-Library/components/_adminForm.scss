@@ -1,0 +1,157 @@
+.admin {
+    grid-column: 2/7;
+    grid-row: span 6;
+    display: flex;
+    
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+font-family: poppins;
+
+}
+
+form {
+
+    //general form srtling
+
+    width: max-content;
+    grid-area:main-content;
+    padding:min(3vw,2rem);
+    margin: 0 auto;
+    h4 {
+        margin-block:1rem;
+    }
+
+    
+input {
+    padding:.5rem .5rem;
+}
+
+
+label {
+    margin-right: .2rem;
+}
+
+.file-input {
+    display: flex;
+    flex-direction: column;
+}
+
+
+//specific section styling
+
+.ingredients-container {
+
+
+    display: flex;
+    flex-direction: column;
+    .ingredient {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+    
+
+            .ingredient-quantity {
+                margin-inline: min(2vw,2rem);
+            }
+
+        .ingredient-name, .ingredient-quantity, .ingredient-unit {
+            display: flex;
+            align-items: center;
+
+         
+        }
+        
+    }
+}
+
+
+.Add-Ingredient-btn {
+    background-color: transparent;
+    border: 1px dashed gray;
+    padding:1rem 1.2rem;
+    border-radius: 5px;
+    margin-block:1rem;
+    font-weight: bold;
+}
+
+.create-recipe-btn {
+    background-color: $accent-colour;
+    color:#000;
+    font-weight: bold;
+    border-radius: 5px;
+    border:none;
+    padding: .5rem .7rem;
+    transition: all 200ms ease-in-out;
+
+
+
+    &:hover {
+        background: #1d1d1d;
+        color:#fff;
+    }
+}
+
+.delete-ingredient-btn {
+    margin-left: 1rem;
+    border:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    border-radius: 5px;
+    padding-inline: 1rem;
+    
+
+    svg {
+  
+        margin:0;
+    }
+
+
+}
+
+
+.selected-cuisine {
+    display: flex;
+    width: max-content;
+    align-items: center;
+}
+}
+
+@media screen and (max-width: 1250px) {
+    .admin {
+        grid-column: 1/4;
+    }
+}
+@media screen and (max-width: 800px) {
+.ingredient {
+    align-items: space-between;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+.ingredient-name, .ingredient-quantity, .ingredient-unit, .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ingredient-quantity {
+    justify-content: space-between;
+   margin-inline: 0 !important;
+    margin-block: 1rem;
+}
+
+.delete-ingredient-btn {
+    margin-inline:0 !important;
+    width: max-content;
+   align-self: flex-end;
+    padding-inline: .6rem !important;
+    padding-block: .6rem;
+    margin-top: 1rem !important;
+}
+}

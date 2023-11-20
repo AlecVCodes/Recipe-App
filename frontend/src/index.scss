@@ -1,0 +1,50 @@
+// index.scss
+
+// Variables & Functions
+@import "../src/Scss-Library/variables";
+// @import "../src/Scss-Library/functions";
+
+// // Base & Layout
+// @import "../src/Scss-Library/breakpoints";
+@import "../src/Scss-Library/base";
+@import "../src/Scss-Library/grid";
+
+// // Colours
+// @import "../src/Scss-Library/colours";
+// @import "../src/Scss-Library/components/modal";
+
+// //components
+@import "../src/Scss-Library/components/scrollbar";
+@import "../src/Scss-Library/components/preloader";
+@import "../src/Scss-Library/components/adminForm";
+@import "../src/Scss-Library/components/error_message";
+@import "../src/Scss-Library/components/success_messages";
+@import "../src/Scss-Library/components/button";
+@import "../src/Scss-Library/components/slider";
+@import "../src/Scss-Library/components/sidebar";
+@import "../src//Scss-Library/components/select-menus";
+@import "../src/Scss-Library/components/tooltip";
+// @import "../src/Scss-Library//components/input";
+@import "../src/Scss-Library/components/cards";
+@import "../src/Scss-Library/components/navbar";
+@import "../src/Scss-Library/components/iconCircles";
+// @import "../src/Scss-Library/components/scrollbars";
+@import "../src/Scss-Library/components/footer";
+@import "../src/Scss-Library/components/mockup";
+// // Utilities
+@import "../src/Scss-Library/utilities";
+
+// //animations
+// @import "../src/Scss-Library/animations";
+
+// //Responsive SVG styling
+
+// @import "../src/Scss-Library/components/responsiveSVG";
+
+// //Pages
+
+@import "../src/Scss-Library/homePage";
+@import "../src/Scss-Library/signUpPage";
+@import "../src/Scss-Library/logInPage";
+@import "../src/Scss-Library/userDashboard";
+@import "../src/Scss-Library/Individual_recipe";

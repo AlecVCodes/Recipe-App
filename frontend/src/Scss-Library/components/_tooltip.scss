@@ -1,0 +1,33 @@
+.tooltip-container {
+
+    background-color: #000;
+    position: absolute;
+    z-index: 1000000;
+    border-radius: 2.5px;
+    top:100%;
+    left: -50%;
+    width: max-content;
+    animation: animation 200ms ease-in forwards;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+
+
+
+    .tooltip-text {
+        color:#fff;
+        font-family: poppins;
+        padding: .2rem .3rem;
+        font-size: .6rem;
+    }
+
+
+
+    @keyframes animation {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}

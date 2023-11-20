@@ -1,0 +1,111 @@
+/* hero content */
+
+main {
+  p {
+    text-align: center;
+  }
+}
+
+.hero {
+  padding-top: 130px;
+  position: relative;
+}
+
+/* hero stats section */
+
+.stats-hero-section {
+  width: 100%;
+  margin-inline: auto;
+}
+
+#hero-stat-columns {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  position: relative;
+}
+
+#users-info-column {
+  display: flex;
+  justify-content: center;
+
+  min-width: 50%;
+}
+
+.hero-graphic-column {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.user-stat-details {
+  flex-grow: 1;
+}
+
+/* other */
+
+.scroll-indicator-container {
+  width: max-content;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  position: relative;
+}
+
+/* decorations */
+
+// .hero::after {
+//   content: "";
+//   background-image: url(./images/grapes.png);
+//   top: 0;
+//   right: 0;
+//   position: absolute;
+//   height: 25vh; /* Use viewport height for responsive height */
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   aspect-ratio: 1;
+//   z-index: 100000000000000000000000000000000000000000000000000000000000000000000000;
+// }
+
+/* desktop media queries */
+
+@media (min-width: 50em) {
+  main {
+    p {
+      text-align: left;
+    }
+  }
+  .stats-hero-section {
+    min-width: 100%;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  #hero-stat-columns {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+  }
+
+  #users-info-column {
+    width: 50%;
+    justify-content: left;
+  }
+
+  .hero-graphic-column {
+    position: relative;
+    display: flex;
+    justify-content: right;
+  }
+
+  .scroll-indicator-container {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+  }
+}

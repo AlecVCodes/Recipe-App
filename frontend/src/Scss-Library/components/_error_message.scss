@@ -1,0 +1,47 @@
+.error-message {
+  background-color: rgb(219, 52, 52);
+  color: #fff;
+  padding: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  opacity: 0; /* Start with 0 opacity */
+  animation: floatAndFadeInOut 0.8s ease-in-out forwards; /* Adjust duration as needed */
+  margin-inline: auto;
+  position: fixed;
+  font-size: 0.875rem;
+
+  /* Center the element */
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes floatAndFadeInOut {
+  from {
+    transform: translateY(20px); /* Start with some downward translation */
+    opacity: 0; /* Start with 0 opacity */
+  }
+  to {
+    transform: translateY(0); /* Float up to original position */
+    opacity: 1; /* Fade in */
+  }
+  90% {
+    opacity: 1; /* Maintain full opacity for 90% of the animation */
+  }
+  100% {
+    opacity: 0.5; /* Start fading out gradually at 100% */
+    transform: translateY(-20px); /* Move slightly upward during fade-out */
+    display: none; /* Hide the element after fading out */
+  }
+}
+
+.form-error {
+  margin-block:1rem;
+  background-color: pink;
+  color:red;
+  border:2px solid red;
+  border-radius: 5px;
+  padding:1rem 1.2rem;
+  font-family: Poppins;
+  font-size: 0.875rem;
+}

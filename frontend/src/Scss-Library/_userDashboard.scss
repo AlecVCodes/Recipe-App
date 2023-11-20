@@ -1,0 +1,432 @@
+
+
+
+.dashboard {
+overflow: hidden;
+  display: grid;
+  grid-template-columns: 0.73fr repeat(5, 1fr);
+  grid-template-rows: 10% repeat(4, 20%); /* Change the number of rows to 2 */
+  height: 100vh;
+  grid-template-areas:
+    "sidebar dashboard-header dashboard-header dashboard-header dashboard-header dashboard-header"
+    "sidebar main-content main-content main-content main-content main-content"
+    "sidebar main-content main-content main-content main-content main-content"
+    "sidebar main-content main-content main-content main-content main-content"
+    "sidebar main-content main-content main-content main-content main-content"
+    "sidebar main-content main-content main-content main-content main-content";
+
+  column-gap: 0.2rem;
+  position: relative;
+}
+
+header {
+  height: 100%;
+  z-index: 1;
+  grid-area: dashboard-header;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dashboard-header {
+
+ 
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+height: 100%;
+
+}
+
+//dashboard header
+
+//* searchbar //
+
+.recipe-container {
+z-index: 1 !important;
+  width: 60%;
+  max-width: 900px;
+  position: relative;
+  .searchbar-container {
+    margin-left:min(2vw,2rem);
+    border:1px solid #000;
+    position: relative;
+
+    background-color: $primary;
+    display: flex;
+  
+    z-index: -1;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0.5rem;
+  
+    input {
+      padding-left: 0.5rem;
+      padding-block: 1rem;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      width: 100%;
+    }
+  
+    input:focus {
+      outline: none;
+    }
+  
+    input::placeholder {
+      font-size: 1rem;
+      font-family: Poppins;
+    }
+  }
+  
+} 
+.recipe-list {
+  
+  border-radius: 5px;
+margin-inline: auto;
+  position: absolute;
+  margin-top:1rem;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff9ec;
+
+  p {
+    padding-left:.5rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #dad5cb;
+    }
+  }
+}
+
+.dashboard-buttons-container {
+  margin-left: auto;
+  align-items: center;
+  margin-right: 2rem;
+  flex-direction: row-reverse;
+}
+
+.bell {
+  position: relative;
+}
+
+.notification-icon-container {
+  top:0%;
+  left:-10%;
+  position: absolute;
+  background-color: $accent-colour;
+  z-index: 40;
+  border-radius: 50%;
+  cursor: pointer;
+  justify-self: end;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 100ms ease-in;
+  
+  /* Add a fixed width and height to make it a perfect circle */
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Should be the same value as width for a perfect circle */
+  font-family: poppins;
+
+}
+
+
+
+.avatar {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+//recipes section
+
+.no-saved-recipes {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+margin: 0 auto;
+  grid-row: span 6;
+  grid-area: main-content;
+  height: 100%;
+
+}
+
+.dashboard-container {
+  grid-area: main-content;
+
+
+}
+
+
+.recipes {
+
+  overflow-y: scroll;
+
+position: relative;
+  padding:2rem;
+  padding-bottom: 8.5rem;
+
+  display: grid;
+
+height: 100vh;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  gap: 30px;
+
+  img {
+    cursor: pointer;
+    width: 100%;
+    aspect-ratio:16/9 ;
+  }
+}
+
+
+.recipe-card {
+  height: max-content;
+  width: 100%;
+  animation: recipe-card-animation 200ms ease-in;
+
+}
+
+
+@keyframes recipe-card-animation  {
+
+  0% {
+    opacity: 0%;
+  }
+  100% {
+
+    opacity: 100%;
+  }
+  
+  
+}
+
+
+
+
+
+/* HomeRecipes.css */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+ .recipe-card > .text {
+
+  padding-block:1rem;
+  justify-content: space-between;
+  align-items: center;
+
+width: 100%;
+}
+
+.box {
+  background-color: red;
+  border:5px solid pink;
+}
+
+.dashboard-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999; /* Use a high z-index to place it on top of other elements */
+}
+
+
+//profile edirot
+
+.profile-editor {
+  background-color: gray;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10000000000000000;
+  transform: translate(-50%, -50%);
+  padding:1.5em;
+  border-radius: 20px;
+
+
+  .cross-icon {
+    width:10px;
+
+  }
+
+  h4 {
+margin-inline: 6rem;
+  }
+
+
+
+
+  .upload-btn-wrapper {
+    width: 100%;
+    justify-content: center;
+
+    margin-inline: auto;
+    display: flex;
+  }
+
+  .user-avatar {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    position: relative;
+    width: max-content;
+  }
+
+  .user-avatar img {
+      width: 150px;
+      height: 150px;
+
+    object-fit: cover; /* This ensures the image covers the circle while maintaining its aspect ratio */
+    border-radius: 50%;
+  }
+  
+
+  form  {
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins;
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+    input  {
+      padding-left:.5rem;
+      padding-block:.8rem;
+
+    }
+
+  }
+
+
+
+  }
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+
+
+
+
+  //mobile design
+
+
+@media screen and (max-width: 1250px) {
+  
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "dashboard-header dashboard-header"
+                          "main-content main-content";
+
+    .sidebar {
+      inset:  0 0 0 0;
+      display: none;
+ 
+      position: fixed;
+      
+      &[aria-expanded="true"] {
+        background-color: red !important;
+      }
+    }
+
+    //sidebar mobile animation
+
+    @keyframes mobile-animation {
+
+      0% {
+        opacity: 0%;
+      width: 0%;
+      }
+
+      100% {
+        opacity: 100%;
+        width: 100%;
+      }
+    }
+
+    .sidebar-mobile {
+      display: block;
+      animation: mobile-animation 200ms ease-in;
+      z-index: 100000000000000000000000000000;
+    }
+
+    header {
+      
+    position: relative;
+    display: block;
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+       .dashboard-header {
+        z-index: 10 !important;
+        display: none;
+       }
+    }
+
+  
+
+    button.hamburger-menu {
+      display: block;
+      margin-left:1rem;
+
+
+      svg {
+
+        margin:0;
+        z-index: 199999;
+
+      }
+
+    }
+  }
+}

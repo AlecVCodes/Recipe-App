@@ -111,7 +111,7 @@ export function ProfileEditor(props: ProfileEditorProps) {
           style={{ display: 'none' }}
         />
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className='edit-profile-form' onSubmit={handleSubmit}>
         <div>      <label htmlFor="username">Username</label>
           <input type='text' name='username'></input>
         </div>

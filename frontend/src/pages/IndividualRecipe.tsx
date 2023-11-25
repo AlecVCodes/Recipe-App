@@ -51,8 +51,8 @@ function IndividualRecipe() {
   return (
     <div>
       <div className="recipe-header" >     <h1 className='recipe-title'>{recipe.title}</h1>
-    </div>  
-    <img width={500} height={300} src={recipe.img} alt={recipe.title}></img>
+      </div>
+      <img width={500} height={300} src={recipe.img} alt={recipe.title}></img>
 
       <ul>
         {recipe.ingredients.map((ingredient, index) => (
@@ -60,8 +60,17 @@ function IndividualRecipe() {
             {ingredient.name}: {ingredient.quantity} {ingredient.unit}
           </li>
         ))}
-       
+
       </ul>
+      {recipe.method && (
+
+
+        <ul>
+          {recipe.method.map((step, index) => (
+            <li key={index}>{step.step}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

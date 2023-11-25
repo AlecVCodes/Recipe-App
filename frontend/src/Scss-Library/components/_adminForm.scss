@@ -40,6 +40,8 @@ label {
 
 //specific section styling
 
+
+//ingredients
 .ingredients-container {
 
 
@@ -66,7 +68,35 @@ label {
 }
 
 
-.Add-Ingredient-btn {
+//method
+
+.method-container {
+    .step {
+        margin-bottom:1rem;
+        display: flex;
+        align-items: top;
+        .input-method {
+            font-family: Poppins;
+            margin-left:.5rem;
+            font-size: 1rem;
+            background-color: transparent;
+          
+            width: 100%;
+   
+
+            resize: none;
+            overflow-y: hidden; /* Hide vertical scrollbar */
+            &:focus {
+                outline:none;
+            }
+        }
+    }
+
+    
+}
+
+
+.Add-Ingredient-btn, .Add-method-btn {
     background-color: transparent;
     border: 1px dashed gray;
     padding:1rem 1.2rem;

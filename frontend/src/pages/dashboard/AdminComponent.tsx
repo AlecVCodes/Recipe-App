@@ -1,4 +1,5 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useEffect, useState, useRef } from 'react';
+import { Method } from "../../components/HomeRecipes"
 
 interface Ingredient {
   name: string;
@@ -6,15 +7,24 @@ interface Ingredient {
   unit: string;
 }
 
+
 function AdminComponent() {
   // form states
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: '', quantity: '', unit: '' }]);
   const [recipeTitle, setRecipeTitle] = useState<string>('');
+  //method of recipe
+  const [method, setMethod] = useState<Method[]>([{ step: "" }])
 
   //show cuisine menu
   const [showCuisines, setShowCusines] = useState(false)
   const [cusisine, setCuisine] = useState<string>('');
+
+
+  //refs
+
+  const newStepInputRef = useRef<HTMLTextAreaElement | null>(null);
+
 
 
 
@@ -69,6 +79,8 @@ function AdminComponent() {
     setIngredients(updatedIngredients);
   };
 
+
+  //code for adding ingredient 
   const handleAddIngredient = () => {
     //get ALL the previous ingredients and add a new object to it
     setIngredients([...ingredients, { name: '', quantity: '', unit: '' }]);
@@ -82,6 +94,60 @@ function AdminComponent() {
     }
   };
 
+  //code for adding step to method
+  const handleAddStep = () => {
+    console.log("handle step function ran")
+    //get ALL the previous ingredients and add a new object to it
+    setMethod([...method, { step: "" }]);
+
+
+
+
+
+  };
+
+  const maxTextareaHeight = 100;
+  useEffect(() => {
+    console.log(method, 'current method')
+    //everytime a new step is added console.log the method
+
+
+    //Also add the focus state to the new input that is added
+    if (newStepInputRef.current) {
+      newStepInputRef.current.focus();
+
+    }
+
+
+  }, [method.length])
+
+  useEffect(() => {
+    //code that will execute every time any value in method change
+    if (newStepInputRef.current) {
+      newStepInputRef.current.style.height = 'auto';
+      newStepInputRef.current.style.height =
+        Math.min(newStepInputRef.current.scrollHeight, maxTextareaHeight) + 'px';
+    }
+  }, [method])
+
+
+  //code for Step Change
+  const handleStepChange = (index: number, key: keyof Method, value: string) => {
+    setMethod((prevMethod) => {
+      const updatedMethod = [...prevMethod];
+      updatedMethod[index][key] = value;
+      return updatedMethod;
+    });
+  };
+
+  // const handleDeleteStep = (index: number) => {
+  //   if (method.length > 1) {
+  //     const updatedMethod = [...method];
+  //     updatedMethod.splice(index, 1);
+  //     setMethod(updatedMethod);
+  //   }
+  // };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -92,7 +158,8 @@ function AdminComponent() {
         title: recipeTitle,
         img: imageUrl,
         ingredients: ingredients,
-        cuisine: cusisine
+        cuisine: cusisine,
+        method: method
       };
 
       await createRecipe(recipeData);
@@ -279,6 +346,10 @@ function AdminComponent() {
             </div>
           ))}
 
+
+
+
+
           <ul className='cuisine-select-menu'>
             <div className='selected-cuisine'>     {cusisine ? <p>{cusisine} </p> : <p>Choose Cuisine</p>}     <svg
               onClick={() => setShowCusines(!showCuisines)}
@@ -309,6 +380,37 @@ function AdminComponent() {
 
           <button className='Add-Ingredient-btn' type="button" onClick={handleAddIngredient}>
             Add Ingredient
+          </button>
+
+          <>
+
+            <div className="method-container">
+              <h4>Method</h4>
+              {method.map((step, index) => (
+                <div className="step" key={index}>
+                  <label htmlFor={`step${index}`}>{`${index + 1}.`}</label>
+                  {/* Attach the ref to the input field */}
+                  <textarea
+
+                    ref={index === method.length - 1 ? newStepInputRef : null}
+                    placeholder='Enter your step'
+                    className='input-method'
+                    id={`step-${index}`}
+                    value={step.step}
+                    onChange={(e) => handleStepChange(index, 'step', e.target.value)}
+                  />
+                </div>
+              ))}
+            </div>
+          </>
+
+
+
+
+
+
+          <button className='Add-method-btn' type="button" onClick={handleAddStep}>
+            Add Step
           </button>
         </div>
         <button className='create-recipe-btn'>Create Recipe</button>

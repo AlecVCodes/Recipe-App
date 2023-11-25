@@ -27,6 +27,7 @@
 }
 
 
+
 header {
   z-index: 1000000000000000000000000000;
 }
@@ -145,6 +146,21 @@ p {
 
 section {
   padding-bottom: 15rem;
+}
+
+
+//forms 
+
+textarea {
+  border: none;
+
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+resize: none
+
 }
 
 //accessibility styling

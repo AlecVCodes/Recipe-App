@@ -10,12 +10,19 @@ export interface Ingredient {
   unit: string;
 }
 
+
+export interface Method {
+  step: string
+}
+
+
 export interface Recipe {
   img: string;
   _id: string;
   title: string;
   ingredients: Ingredient[];
   imgLarge: string;
+  method: Method[];
 }
 
 function HomeRecipes() {

@@ -49,28 +49,32 @@ function IndividualRecipe() {
   }
 
   return (
-    <div>
-      <div className="recipe-header" >     <h1 className='recipe-title'>{recipe.title}</h1>
-      </div>
-      <img width={500} height={300} src={recipe.img} alt={recipe.title}></img>
+    <div className='recipe-content'>
 
-      <ul>
+      <header className="recipe-header" >     <h1 className='recipe-title'>{recipe.title}</h1>
+      </header>
+      <img className='indiviual-recipe-img' width={500} height={300} src={recipe.img} alt={recipe.title}></img>
+      <h3>Ingredients</h3>
+
+      <ul className='ingredients-list'>
         {recipe.ingredients.map((ingredient, index) => (
           <li key={index}>
             {ingredient.name}: {ingredient.quantity} {ingredient.unit}
           </li>
         ))}
 
+
       </ul>
       {recipe.method && (
 
-
-        <ul>
-          {recipe.method.map((step, index) => (
-            <li key={index}>{step.step}</li>
-          ))}
-        </ul>
-      )}
+        <div className="method-list">
+          <h3>Method</h3>
+          <ol>
+            {recipe.method.map((step, index) => (
+              <li key={index}>{step.step}</li>
+            ))}
+          </ol>
+        </div>)}
     </div>
   );
 }

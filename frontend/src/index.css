@@ -21,7 +21,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  list-style-type: none;
 }
 
 header {
@@ -41,6 +40,27 @@ li {
 
 ul {
   z-index: 1;
+  list-style-type: none;
+}
+
+ol {
+  counter-reset: li;
+  list-style: none;
+  padding: 0;
+}
+ol li {
+  counter-increment: li;
+  margin-bottom: 10px;
+}
+ol li::before {
+  content: counter(li) ".";
+  font-weight: bold;
+  color: #000;
+  display: inline-block;
+  width: 2em; /* Adjust the width for alignment */
+  text-align: right; /* Align the text to the right */
+  margin-left: -2.5em; /* Adjust the margin-left for alignment */
+  margin-right: 0.5em; /* Adjust the margin-right for spacing */
 }
 
 .hamburger-menu > svg {
@@ -3149,15 +3169,44 @@ header {
     z-index: 199999;
   }
 }
-.recipe-header {
-  position: relative;
-  width: 100%;
-  border: 5px solid black;
+.individual-recipe-title {
   text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 1rem;
+}
+
+.recipe-content {
+  border: 1px solid #000;
+  width: max-content;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding-inline: 4rem;
+}
+.recipe-content .recipe-header {
   display: flex;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 60vh;
+  text-align: center;
+}
+.recipe-content .recipe-header h1 {
+  text-align: center;
+  padding-block: 2rem;
+}
+.recipe-content h3 {
+  padding-block: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.recipe-content .indiviual-recipe-img {
+  display: block;
+  margin: 0 auto;
+}
+.recipe-content .ingredients-list li, .recipe-content .method-list li {
+  font-family: Poppins;
+  font-weight: 300;
+}
+.recipe-content .ingredients-list {
+  list-style-type: disc !important;
+}
+.recipe-content .method-list li {
+  margin-block: 2rem;
 }/*# sourceMappingURL=index.css.map */

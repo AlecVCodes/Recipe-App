@@ -1,11 +1,14 @@
 import React, { createContext, useReducer, Dispatch, ReactNode } from "react";
 import { Ingredient } from "../components/HomeRecipes";
+import { Method } from "../components/HomeRecipes";
 
-interface SavedRecipes {
-  title: ReactNode;
-  img: string | undefined;
-  _id: string; 
+export interface SavedRecipes {
+  img: string;
+  _id: string;
+  title: string;
   ingredients: Ingredient[];
+  imgLarge: string;
+  method: Method[];
 }
 
 interface SavedRecipesState {
@@ -13,7 +16,7 @@ interface SavedRecipesState {
 }
 
 type Action =
-| { type: "SET_SAVED_RECIPES"; payload?: SavedRecipes[] | null }
+  | { type: "SET_SAVED_RECIPES"; payload?: SavedRecipes[] | null }
   | { type: "CREATE_SAVED_RECIPE"; payload: SavedRecipes }
   | { type: "DELETE_SAVED_RECIPE"; payload: SavedRecipes };
 

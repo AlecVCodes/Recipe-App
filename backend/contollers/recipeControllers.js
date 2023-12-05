@@ -44,12 +44,14 @@ const getRecipe = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
+    console.log("no recipe exists1")
     return res.status(404).json({ error: "No such recipe" });
   }
 
   const recipe = await recipeModel.findById(id);
 
   if (!recipe) {
+    console.log("no recipe exists2")
     return res.status(404).json({ error: "No such recipe" });
   }
 
@@ -57,11 +59,11 @@ const getRecipe = async (req, res) => {
 };
 
 const createRecipe = async (req, res) => {
-  const { title, ingredients, img, imgLarge, cuisine } = req.body;
+  const { title, ingredients, img, imgLarge, cuisine, method } = req.body;
 
   // add to the database
   try {
-    const recipe = await recipeModel.create({ title, ingredients, img, imgLarge, cuisine });
+    const recipe = await recipeModel.create({ title, ingredients, img, imgLarge, cuisine, method });
     res.status(200).json(recipe);
   } catch (error) {
     res.status(400).json({ error: error.message });

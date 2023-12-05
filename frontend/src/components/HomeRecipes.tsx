@@ -73,7 +73,8 @@ function HomeRecipes() {
     try {
       const response = await fetch(`/api/recipes/${recipeId}`, {
         headers: { Authorization: `Bearer ${user.token}` },
-      });
+      }
+      );
 
       if (!response.ok) {
         console.error(
@@ -81,7 +82,11 @@ function HomeRecipes() {
         );
         return;
       }
+
+
       const savedRecipe = await response.json();
+
+      console.log(savedRecipe, 'saved recipe')
 
       const postResponse = await fetch("/api/userRecipes", {
         method: "POST",

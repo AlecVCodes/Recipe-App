@@ -16,6 +16,13 @@ const ingredientSchema = new Schema({
   },
 });
 
+const MethodSchema = new Schema({
+  step: {
+    type: String,
+    required: true,
+  }
+})
+
 const recipeSchema = new Schema({
   title: {
     type: String,
@@ -28,6 +35,7 @@ const recipeSchema = new Schema({
   img: String,
   imgLarge: String,
   ingredients: [ingredientSchema],
+  method: [MethodSchema]
 });
 
 const Recipe = mongoose.model("Recipe", recipeSchema);

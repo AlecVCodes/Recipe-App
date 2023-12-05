@@ -11,7 +11,7 @@ const getUserRecipes = async (req, res) => {
 // Add a new user recipe to their saved collection
 const AddUserRecipe = async (req, res) => {
 
-  const { title, ingredients, img } = req.body;
+  const { title, ingredients, img, method } = req.body;
   const user_id = req.user[0]._id;
 
 
@@ -26,7 +26,7 @@ const AddUserRecipe = async (req, res) => {
     }
 
     // If the image is unique for the current user, add it to the database
-    const recipe = await UserRecipeSchema.create({ title, ingredients, img, user_id });
+    const recipe = await UserRecipeSchema.create({ title, ingredients, img, user_id, method });
     res.status(200).json(recipe);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });

@@ -16,6 +16,14 @@ const ingredientSchema = new Schema({
   },
 });
 
+const MethodSchema = new Schema({
+  step: {
+    type: String,
+    required: true,
+  }
+})
+
+
 const UserRecipeSchema = new Schema({
   user_id: {
     type: mongoose.Schema.Types.ObjectId, 
@@ -27,6 +35,7 @@ const UserRecipeSchema = new Schema({
   },
   img: String,
   ingredients: [ingredientSchema],
+  method: [MethodSchema]
 });
 
 const UserRecipes = mongoose.model("UserRecipes", UserRecipeSchema);

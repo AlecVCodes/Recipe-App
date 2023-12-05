@@ -25,6 +25,7 @@ import IndividualRecipe from "./pages/IndividualRecipe";
 
 import UserRecipe from "./pages/UserRecipe";
 import AdminComponent from "./pages/dashboard/AdminComponent";
+import IndividualUserRecipe from "./pages/dashboard/individualUserRecipe";
 
 //Admin Component 
 
@@ -33,8 +34,8 @@ import AdminComponent from "./pages/dashboard/AdminComponent";
 function App() {
 
 
-  
-  const {t, i18n} = useTranslation();
+
+  const { t, i18n } = useTranslation();
   // A helper function to determine if the navbar should be shown
   const shouldShowNavbar = (pathname: string) => {
     return pathname !== "/signup" && pathname !== "/login";
@@ -43,9 +44,9 @@ function App() {
   const { dispatch, user } = UseAuthContext();
 
 
-//Check to see if token is still valid
+  //Check to see if token is still valid
   useEffect(() => {
-    
+
   }, [user])
 
   console.log("AuthContext State:", user);
@@ -53,29 +54,29 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route index element={user ? <Navigate to={"/userDashboard"}/> :<HomePage />} />
-        <Route path="/signup" element={user ? <Navigate to ={"/userDashboard"}/> :<SignUpComponent />} />
-        <Route path="/login" element={user ? <Navigate to ={"/userDashboard"}/> :<LogInComponent />}  />
+        <Route index element={user ? <Navigate to={"/userDashboard"} /> : <HomePage />} />
+        <Route path="/signup" element={user ? <Navigate to={"/userDashboard"} /> : <SignUpComponent />} />
+        <Route path="/login" element={user ? <Navigate to={"/userDashboard"} /> : <LogInComponent />} />
 
         {/* Main dashboard route */}
-        <Route path="/userDashboard/*" element={user ? <UserDashboardHome /> : <Navigate to ={"/"}/>}>
+        <Route path="/userDashboard/*" element={user ? <UserDashboardHome /> : <Navigate to={"/"} />}>
           {/* Nested routes for different sections of the dashboard */}
           <Route
             index // This will match when there is no additional path after "/userDashboard/"
             element={
               user ?
                 <HomeRecipes />
-                : <Navigate to ={"/login"} />
+                : <Navigate to={"/login"} />
             }
           />
           <Route
             path="savedRecipes"
-            element={ user ?
-              
-                <SavedRecipesComponent />
-                : <Navigate to ={"/login"} />
+            element={user ?
 
-              
+              <SavedRecipesComponent />
+              : <Navigate to={"/login"} />
+
+
             }
           />
           <Route
@@ -97,15 +98,15 @@ function App() {
             }
           />
         </Route>
-        
+
         <>
-        <Route path="/individual-recipe/:id" element={<IndividualRecipe />} />
+          <Route path="/individual-recipe/:id" element={<IndividualRecipe />} />
         </>
-            <>        <Route path="/individual-user-recipe/:id" element={<UserRecipe />} />
-</>
+        <>        <Route path="/individual-user-recipe/:id" element={<IndividualUserRecipe />} />
+        </>
 
       </Route>
-      
+
     )
   );
 

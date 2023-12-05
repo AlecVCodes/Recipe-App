@@ -24,11 +24,17 @@ function IndividualRecipe() {
 
   const fetchRecipeData = async () => {
     if (id) {
+
       try {
+        console.log(id)
         const response = await fetch(`/api/recipes/${id}`, {
           headers: { Authorization: `Bearer ${user.token}` }
         }); // Adjust the API endpoint to match your backend
+
+        console.log(response.body, 'response body')
+        console.log(id, 'id paramaters')
         if (response.ok) {
+
           const data: Recipe = await response.json();
           setRecipe(data);
           console.log(data)
@@ -36,6 +42,7 @@ function IndividualRecipe() {
           localStorage.setItem(`recipe_${id}`, JSON.stringify(data));
         } else {
           // Handle error when the recipe is not found
+          console.log("function did not  work")
         }
       } catch (error) {
         // Handle any fetch errors
